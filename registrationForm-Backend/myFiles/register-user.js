@@ -50,7 +50,7 @@ myRouter.post('/', [
 
             let password_get = sanitizeInput(req.body.password)
 
-            let savingData = {
+            const savingData = {
                 regEmail: email_get,
                 regName: name_get,
                 password: password_get
@@ -60,7 +60,7 @@ myRouter.post('/', [
             let myNewUser = await myUser.create(savingData)
 
             //define payload data that should be encoded into JWT
-            let payload_data = {
+            const payload_data = {
                 email: email_get,
                 name: name_get,
                 userType: "user"
@@ -93,3 +93,4 @@ myRouter.post('/', [
 //exporting so that it can access from other files
 
 export default myRouter;
+
