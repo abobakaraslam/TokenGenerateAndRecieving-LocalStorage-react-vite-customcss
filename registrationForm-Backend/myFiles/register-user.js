@@ -59,11 +59,18 @@ myRouter.post('/', [
             //save/create/insert data into databas
             let myNewUser = await myUser.create(savingData)
 
+            //define payload data that should be encoded into JWT
+            let payload_data = {
+                email: email_get,
+                name: name_get,
+                userType: "user"
+            }
+
             // Generate token
             const token = jwt.sign(
-                { email: email_get, name: name_get, userType: "user" },
+                payload_data,
                 JWT_SECRET,
-                { expiresIn: "1h" } // token expires in 1 hour
+                { expiresIn: "2m" } // token expires in 1 hour
                 //you can specify time as 60s, 5m, 2d etc
             );
 
@@ -84,4 +91,5 @@ myRouter.post('/', [
     })
 
 //exporting so that it can access from other files
+
 export default myRouter;
