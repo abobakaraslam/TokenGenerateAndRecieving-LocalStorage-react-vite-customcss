@@ -70,7 +70,7 @@ myRouter.post('/', [
             const token = jwt.sign(
                 payload_data,
                 JWT_SECRET,
-                { expiresIn: "2m" } // token expires in 1 hour
+                { expiresIn: "1h" } // token expires in 1 hour
                 //you can specify time as 60s, 5m, 2d etc
             );
 
@@ -93,4 +93,5 @@ myRouter.post('/', [
 //exporting so that it can access from other files
 
 export default myRouter;
+
 
